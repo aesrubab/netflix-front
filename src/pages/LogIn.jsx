@@ -5,7 +5,6 @@ function LogIn() {
       <div>
         <LogInForm />
         <FooterForRegandLog/>
-
       </div>
     );
   }
