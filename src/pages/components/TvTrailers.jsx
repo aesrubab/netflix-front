@@ -1,4 +1,3 @@
-// components/TvTrailers.jsx
 import React, { useEffect, useState } from 'react';
 import { fetchTvTrailers } from './services_api';
 const TvTrailers = ({ tvId, accessToken }) => {
