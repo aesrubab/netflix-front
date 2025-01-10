@@ -1,5 +1,5 @@
-import SignUpForm from "./components/SignUpForm";
-import FooterForRegandLog from "./components/FooterForRegandLog";
+import SignUpForm from "./componentss/SignUpForm";
+import FooterForRegandLog from "../components/FooterForRegandLog";
 
 function Register() {
     return (

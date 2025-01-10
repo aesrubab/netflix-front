@@ -1,8 +1,8 @@
 import React from "react";
-import LanguageSelector from "./LanguageSelector";
+import LanguageSelector from "../componentss/LanguageSelector";
 import MainContent from "./MainContent";
-import NetFlixBG from "../../assets/NetFlixBG.jpg";
-import Logo from "../components/Logo"
+import NetFlixBG from "../../../assets/NetFlixBG.jpg";
+import Logo from "./Logo"
 
 const Header = ({ language, setLanguage }) => {
   return (

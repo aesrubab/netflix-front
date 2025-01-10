@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Landing from "./pages/Landing";
-import Register from "./pages/Register";
-import LogIn from "./pages/LogIn";
+import Landing from "./pages/Landing/Landing";
+import Register from "./pages/Register/Register";
+import LogIn from "./pages/Login/LogIn";
 import PrivateRoute from "./PrivateRoute";
 import HomePage from './pages/HomePage'
 import Movies from "./pages/Movies";

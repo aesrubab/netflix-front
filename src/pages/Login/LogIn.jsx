@@ -1,5 +1,5 @@
-import LogInForm from "./components/LogInForm";
-import FooterForRegandLog from "./components/FooterForRegandLog";
+import LogInForm from "../Login/componentss/LogInForm";
+import FooterForRegandLog from "../components/FooterForRegandLog";
 function LogIn() {
     return (
       <div>

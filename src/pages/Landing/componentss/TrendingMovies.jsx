@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import RedBar from "../components/RedBar";
-import TrendingHeader from "../components/TrendingHeader";
-import MovieDetailsModal from "../components/MovieDetailsModal";
-import MovieCard from "../components/MovieCard";
-import ReasonToJoin from "../components/ReasonToJoin";
+import RedBar from "./RedBar";
+import TrendingHeader from "./TrendingHeader";
+import MovieDetailsModal from "../componentss/MovieDetailsModal"
+import MovieCard from "./MovieCard";
+import ReasonToJoin from "./ReasonToJoin";
 
 const TrendingMovies = () => {
   const [movies, setMovies] = useState([]);
@@ -49,11 +49,16 @@ const TrendingMovies = () => {
 
   const handleCardClick = async (movieId) => {
     try {
-      const response = await fetch(`http://localhost:5001/api/v1/movie/${movieId}/details`, {
+      const endpoint = selectedCategory === "Movies"
+        ? `http://localhost:5001/api/v1/movie/${movieId}/details`
+        : `http://localhost:5001/api/v1/tv/${movieId}/details`;
+  
+      const response = await fetch(endpoint, {
         headers: {
           Accept: "application/json"
         }
       });
+  
       if (!response.ok) {
         throw new Error("Failed to fetch movie details.");
       }

@@ -57,7 +57,7 @@ const FAQ = () => {
             >
               <button
                 onClick={() => toggleAccordion(index)}
-                className="w-full flex justify-between items-center py-5 px-6 text-left text-lg font-semibold focus:outline-none text-white"
+                className="w-full flex justify-between items-center py-5 px-6 text-left text-lg font-semibold  focus:outline-none text-white"
               >
                 <span className="flex-1">{item.title}</span>
                 <span className="text-xl">{openIndex === index ? "-" : "+"}</span>

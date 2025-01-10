@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "./components/Header";
-import TrendingMovies from "./components/TrendingMovies";
-import FAQ from "./components/Faq";
-import Footer from "./components/Footer";
+import Header from "./componentss/Header";
+import TrendingMovies from "./componentss/TrendingMovies";
+import FAQ from "./componentss/Faq";
+import Footer from "./componentss/Footer";
 function Landing() {
   return (
     <div>

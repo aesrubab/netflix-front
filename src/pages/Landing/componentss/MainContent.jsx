@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from "emailjs-com";
 
 const MainContent = () => {
   const [email, setEmail] = useState("");
@@ -8,8 +9,28 @@ const MainContent = () => {
       alert("Please enter a valid email address.");
       return;
     }
-    console.log(`Get Started clicked with email: ${email}`);
-    alert(`You have started with email: ${email}`);
+
+    const templateParams = {
+      to_email: email,
+    };
+
+    emailjs
+      .send(
+        "service_8k7udnw", 
+        "template_pqwhy4h", 
+        templateParams,
+        "UJkM4ka4TOCOxC1jb" 
+      )
+      .then(
+        (response) => {
+          console.log("Email sent successfully:", response);
+          alert(`You have started with email: ${email}`);
+        },
+        (error) => {
+          console.error("Error sending email:", error);
+          alert("Oops! Something went wrong, please try again.");
+        }
+      );
   };
 
   return (
