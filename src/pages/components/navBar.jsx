@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import NetflixLogo from "../../assets/NetflixLogo.png";
-import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import { Link, useNavigate } from "react-router-dom"; 
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate(); 
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("token"); // Remove the token from localStorage
-    navigate("/login"); // Navigate to the login page
+    localStorage.removeItem("token"); 
+    navigate("/login"); 
   };
 
   return (
@@ -23,7 +23,7 @@ const Navbar = () => {
         </Link>
         <ul className="hidden md:flex gap-6 text-lg font-bold">
           <li>
-            <Link to="/" className="hover:underline cursor-pointer">
+            <Link to="/home" className="hover:underline cursor-pointer">
               Home
             </Link>
           </li>

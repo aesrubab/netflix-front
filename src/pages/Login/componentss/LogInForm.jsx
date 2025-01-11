@@ -23,7 +23,7 @@ const LogInForm = () => {
       setSuccess('Logged in successfully!');
       setFormData({ email: '', password: '' });
 
-      navigate('/');
+      navigate('/home');
     } catch (err) {
       setError(err.response?.data?.message || 'Something went wrong. Please try again.');
     }

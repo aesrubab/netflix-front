@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "./components/navBar";
-import { fetchMoviesByCategory, getAccessToken } from "./components/services_api"; 
+import { fetchTrendingMovies, getAccessToken } from "./components/services_api";
 
 const Movies = () => {
-  const [movies, setMovies] = useState([]); 
-  const [loading, setLoading] = useState(false); 
-  const [error, setError] = useState(null); 
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const imageBaseUrl = "https://image.tmdb.org/t/p/w500";
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
         setLoading(true);
-        const accessToken = await getAccessToken(); 
+        const accessToken = await getAccessToken();
         if (!accessToken) {
           setError("No access token found.");
           return;
         }
 
-        const response = await fetchMoviesByCategory(accessToken); 
+        const response = await fetchTrendingMovies();
         if (response.success) {
-          setMovies(response.data.movies); 
+          setMovies(response.content);
         } else {
           setError(response.message || "Something went wrong!");
         }
@@ -30,7 +32,7 @@ const Movies = () => {
       }
     };
 
-    fetchMovies(); 
+    fetchMovies();
   }, []);
 
   return (
@@ -44,12 +46,14 @@ const Movies = () => {
           {movies.length > 0 ? (
             movies.map((movie) => (
               <div key={movie.id} className="rounded overflow-hidden">
-                <img
-                  src={movie.posterUrl}
-                  alt={movie.title}
-                  className="w-full h-auto object-cover rounded-lg"
-                />
-                <h2 className="text-lg font-bold mt-2">{movie.title}</h2>
+                <Link to={`/details/movie/${movie.id}`}>
+                  <img
+                    src={`${imageBaseUrl}${movie.poster_path}`}
+                    alt={movie.title}
+                    className="w-full h-auto object-cover rounded-lg"
+                  />
+                  <h2 className="text-lg font-bold mt-2">{movie.title}</h2>
+                </Link>
               </div>
             ))
           ) : (

@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import RedBar from "./RedBar";
 import TrendingHeader from "./TrendingHeader";
-import MovieDetailsModal from "../componentss/MovieDetailsModal"
+import MovieDetailsModal from "../componentss/MovieDetailsModal";
 import MovieCard from "./MovieCard";
 import ReasonToJoin from "./ReasonToJoin";
+import { useTranslation } from "react-i18next";
 
 const TrendingMovies = () => {
+  const { t } = useTranslation(); 
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -24,7 +26,7 @@ const TrendingMovies = () => {
 
         const response = await fetch(endpoint);
         if (!response.ok) {
-          throw new Error(`Failed to fetch data for ${selectedCategory}.`);
+          throw new Error(t('error.fetchFailed', { category: selectedCategory }));
         }
 
         const data = await response.json();
@@ -37,7 +39,7 @@ const TrendingMovies = () => {
     };
 
     fetchTrendingData();
-  }, [selectedCategory]);
+  }, [selectedCategory, t]);
 
   const scrollLeft = () => {
     scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
@@ -60,28 +62,28 @@ const TrendingMovies = () => {
       });
   
       if (!response.ok) {
-        throw new Error("Failed to fetch movie details.");
+        throw new Error(t('error.movieDetailsFetchFailed'));
       }
   
       const data = await response.json();
       setSelectedMovie(data); 
     } catch (error) {
-      console.error("Error fetching movie details:", error);
+      console.error(t('error.movieDetailsError'), error);
     }
   };
 
   if (loading) {
-    return <div className="text-white">Loading...</div>;
+    return <div className="text-white">{t('loading')}</div>;
   }
 
   if (error) {
-    return <div className="text-red-600">Error: {error}</div>;
+    return <div className="text-red-600">{t('error.generic', { error })}</div>;
   }
 
   return (
     <div className="bg-gradient-to-b from-gray-900 via-black to-black min-h-screen p-6 relative">
       <RedBar />
-      <TrendingHeader title="Trending Now" />
+      <TrendingHeader title={t('trendingNow')} />
 
       <div className="mb-4 mt-8">
         <select
@@ -90,8 +92,8 @@ const TrendingMovies = () => {
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
         >
-          <option value="Movies">Movies</option>
-          <option value="TV Shows">TV Shows – English</option>
+          <option value="Movies">{t('movie')}</option>
+          <option value="TV Shows">{t('tvShows')}</option>
         </select>
       </div>
 

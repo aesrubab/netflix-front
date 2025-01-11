@@ -4,7 +4,7 @@ import MainContent from "./MainContent";
 import NetFlixBG from "../../../assets/NetFlixBG.jpg";
 import Logo from "./Logo"
 
-const Header = ({ language, setLanguage }) => {
+const Header = () => {
   return (
     <header
       className="relative bg-cover bg-center h-screen flex flex-col"
@@ -16,7 +16,7 @@ const Header = ({ language, setLanguage }) => {
 
       <div className="absolute top-0 left-0 right-0 flex justify-between items-center px-4 md:px-8 py-4 z-20">
         <Logo />
-        <LanguageSelector language={language} setLanguage={setLanguage} />
+        <LanguageSelector />
       </div>
 
       <div className="flex flex-grow items-center justify-center z-10">

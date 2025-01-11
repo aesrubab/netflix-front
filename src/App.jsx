@@ -4,9 +4,10 @@ import Landing from "./pages/Landing/Landing";
 import Register from "./pages/Register/Register";
 import LogIn from "./pages/Login/LogIn";
 import PrivateRoute from "./PrivateRoute";
-import HomePage from './pages/HomePage'
+import HomePage from './pages/HomePage/HomePage'
 import Movies from "./pages/Movies";
 import TvShows from "./pages/TvShows";
+import Details from "./pages/Details";
 
 const App = () => {
   return (
@@ -14,7 +15,7 @@ const App = () => {
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<LogIn />} />
-        <Route path="/landing" element={<Landing />} />
+        <Route path="/" element={<Landing />} />
         <Route
           path="/tvshows"
           element={
@@ -32,10 +33,19 @@ const App = () => {
           }
         />
         <Route
-          path="/"
+          path="/home"
           element={
             <PrivateRoute>
               <HomePage />
+            </PrivateRoute>
+          }
+        />
+
+<Route
+          path="/details/:type/:id"
+          element={
+            <PrivateRoute>
+              <Details />
             </PrivateRoute>
           }
         />

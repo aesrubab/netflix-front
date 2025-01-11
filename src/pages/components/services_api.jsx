@@ -1,9 +1,32 @@
+export const fetchMoviebyId = async (id, accessToken) => {
+  const response = await fetch(`http://localhost:5001/api/v1/movie/${id}`, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      Authorization: `Bearer ${accessToken}`
+    },
+  });
+  return response.json();
+};
+
+export const fetchTvbyId = async (id, accessToken) => {
+  const response = await fetch(`http://localhost:5001/api/v1/tv/${id}`, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      Authorization: `Bearer ${accessToken}`
+    },
+  });
+  return response.json();
+};
+
+
 export const fetchMovieTrailers = async (id, accessToken) => {
     const response = await fetch(`http://localhost:5001/api/v1/movie/${id}/trailers`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${accessToken}`
       },
     });
     return response.json();
@@ -14,7 +37,7 @@ export const fetchMovieTrailers = async (id, accessToken) => {
       method: 'GET',
       headers: {
         Accept: 'application/json',
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${accessToken}`
       },
     });
     return response.json();
@@ -25,7 +48,7 @@ export const fetchMovieTrailers = async (id, accessToken) => {
       method: 'GET',
       headers: {
         Accept: 'application/json',
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${accessToken}`
       },
     });
     return response.json();
@@ -36,20 +59,20 @@ export const fetchMovieTrailers = async (id, accessToken) => {
       method: 'GET',
       headers: {
         Accept: 'application/json',
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${accessToken}`
       },
     });
     return response.json();
   };
   
 
-export const fetchMoviesByCategory = async (accessToken) => {
+export const fetchMoviesByCategory = async (category, accessToken) => {
   try {
-    const response = await fetch('http://localhost:5001/api/v1/movie/category', {
+    const response = await fetch(`http://localhost:5001/api/v1/movie/${category}`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${accessToken}`
       },
     });
 
@@ -82,3 +105,23 @@ export const fetchMoviesByCategory = async (accessToken) => {
   export const getAccessToken = async () =>{
     return localStorage.getItem("token")
   }
+
+  export const fetchTrendingMovies = async () => {
+    const response = await fetch('http://localhost:5001/api/v1/movie/trending', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json'
+      },
+    });
+    return response.json();
+  };
+
+  export const fetchTrendingTvShows = async () => {
+    const response = await fetch('http://localhost:5001/api/v1/tv/trending', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json'
+      },
+    });
+    return response.json();
+  };

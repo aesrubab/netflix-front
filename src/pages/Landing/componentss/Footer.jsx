@@ -1,106 +1,109 @@
 import React from "react";
+import { useTranslation } from "react-i18next"; 
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-black text-white py-8">
       <div className="max-w-screen-lg mx-auto px-4">
         <h3 className="text-center text-xl mb-6">
-          Ready to watch? Enter your email to create or restart your membership.
+          {t("footer.readyToWatch")} 
         </h3>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
           <input
             type="email"
-            placeholder="Email address"
+            placeholder={t("emailPlaceHolder")} 
             className="w-full sm:w-96 px-4 py-2 rounded bg-gray-700 text-white placeholder-gray-400"
           />
           <button className="bg-red-600 text-white px-6 py-2 rounded mt-4 sm:mt-0 sm:ml-4">
-            Get Started &gt;
+            {t("getStarted")} 
           </button>
         </div>
         <p className="mt-6 text-gray-400 text-left">
-          Questions? <a href="#" className="hover:underline">Contact us.</a>
+          <a href="#" className="hover:underline">{t("footer.contactUs")}</a>
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-8 text-sm">
           <ul className="space-y-2">
             <li>
               <a href="#" className="hover:underline text-gray-400">
-                FAQ
+                {t("footer.links.0")}
               </a>
             </li>
             <li>
               <a href="#" className="hover:underline text-gray-400">
-                Investor Relations
+                {t("footer.links.1")}
               </a>
             </li>
             <li>
               <a href="#" className="hover:underline text-gray-400">
-                Privacy
+                {t("footer.links.2")}
               </a>
             </li>
             <li>
               <a href="#" className="hover:underline text-gray-400">
-                Speed Test
-              </a>
-            </li>
-          </ul>
-          <ul className="space-y-2">
-            <li>
-              <a href="#" className="hover:underline text-gray-400">
-                Help Center
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline text-gray-400">
-                Jobs
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline text-gray-400">
-                Cookie Preferences
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline text-gray-400">
-                Legal Notices
+                {t("footer.links.3")}
               </a>
             </li>
           </ul>
           <ul className="space-y-2">
             <li>
               <a href="#" className="hover:underline text-gray-400">
-                Account
+                {t("footer.links.4")}
               </a>
             </li>
             <li>
               <a href="#" className="hover:underline text-gray-400">
-                Ways to Watch
+                {t("footer.links.5")}
               </a>
             </li>
             <li>
               <a href="#" className="hover:underline text-gray-400">
-                Corporate Information
+                {t("footer.links.6")}
               </a>
             </li>
             <li>
               <a href="#" className="hover:underline text-gray-400">
-                Only on Netflix
+                {t("footer.links.7")}
               </a>
             </li>
           </ul>
           <ul className="space-y-2">
             <li>
               <a href="#" className="hover:underline text-gray-400">
-                Media Center
+                {t("footer.links.8")}
               </a>
             </li>
             <li>
               <a href="#" className="hover:underline text-gray-400">
-                Terms of Use
+                {t("footer.links.9")}
               </a>
             </li>
             <li>
               <a href="#" className="hover:underline text-gray-400">
-                Contact Us
+                {t("footer.links.10")}
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:underline text-gray-400">
+                {t("footer.links.11")}
+              </a>
+            </li>
+          </ul>
+          <ul className="space-y-2">
+            <li>
+              <a href="#" className="hover:underline text-gray-400">
+                {t("footer.links.12")}
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:underline text-gray-400">
+                {t("footer.links.13")}
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:underline text-gray-400">
+                {t("footer.links.14")}
               </a>
             </li>
           </ul>
@@ -114,7 +117,7 @@ const Footer = () => {
               <option>Azerbaijani</option>
             </select>
             <p className="mt-2 text-gray-400 text-left">
-              Netflix Azerbaijan
+              {t("footer.footerBrand")} 
             </p>
           </div>
         </div>
